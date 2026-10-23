@@ -1,0 +1,12 @@
+[package]
+name = "versor-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Simple command line interface for the versor reversi engine"
+
+[dependencies]
+versor-core = { path = "../versor-core" }
+versor-search = { path = "../versor-search" }
+versor-eval = { path = "../versor-eval" }
+serde_json = "1.0.150"

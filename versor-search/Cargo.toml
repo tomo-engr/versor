@@ -1,0 +1,9 @@
+[package]
+name = "versor-search"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Search and exact endgame solver for the versor reversi engine"
+
+[dependencies]
+versor-core = { path = "../versor-core" }

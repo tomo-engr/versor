@@ -1,0 +1,33 @@
+{
+  "edax": {
+    "binary": "/path/to/edax/lEdax-x86-64-v2",
+    "args": [
+      "-q",
+      "-n",
+      "1",
+      "-book-usage",
+      "off",
+      "-l",
+      "{level}"
+    ],
+    "clock": {
+      "template": "game-time {secs}",
+      "before_setboard": true
+    }
+  },
+  "egaroucid": {
+    "binary": "/path/to/egaroucid/Egaroucid_for_Console.out",
+    "args": [
+      "-q",
+      "-nobook",
+      "-t",
+      "1",
+      "-l",
+      "{level}"
+    ],
+    "clock": {
+      "template": "settime {color} {secs}",
+      "before_setboard": false
+    }
+  }
+}

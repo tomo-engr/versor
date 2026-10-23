@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>versor Reversi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="titlebar">
+  <h1 data-i18n="page.heading">versor Reversi</h1>
+  <label id="lang-box"><span data-i18n="lang.label">Language</span>
+    <select id="lang">
+      <option value="en">English</option>
+      <option value="ja">日本語</option>
+    </select>
+  </label>
+</div>
+<div id="layout">
+  <div id="left">
+    <svg id="board" viewBox="0 0 440 440" role="img" aria-label="reversi board"></svg>
+    <div id="status">
+      <span id="counts"></span>
+      <span id="turn"></span>
+    </div>
+  </div>
+  <div id="right">
+    <section>
+      <h2 data-i18n="sec.game">Game</h2>
+      <div class="row">
+        <button id="newgame" data-i18n="btn.newgame">New game</button>
+        <button id="undo" data-i18n="btn.undo">Undo</button>
+        <button id="pass" data-i18n="btn.pass" hidden>Pass</button>
+      </div>
+      <div class="row">
+        <label><span data-i18n="label.mode">Mode</span>
+          <select id="mode">
+            <option value="play" data-i18n="mode.play">Play (human vs versor)</option>
+            <option value="analysis" data-i18n="mode.analysis">Analysis (free setup)</option>
+          </select>
+        </label>
+      </div>
+      <div class="row" id="play-controls">
+        <label><span data-i18n="label.engineColor">versor plays</span>
+          <select id="engine-color">
+            <option value="O" data-i18n="color.white">White (second)</option>
+            <option value="X" data-i18n="color.black">Black (first)</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <label><span data-i18n="label.limitKind">Search limit</span>
+          <select id="limit-kind">
+            <option value="depth" data-i18n="limit.depth">Depth</option>
+            <option value="nodes" data-i18n="limit.nodes">Nodes</option>
+            <option value="ms" data-i18n="limit.ms">Time (ms)</option>
+          </select>
+        </label>
+        <input id="limit-value" type="number" value="8" min="1" style="width:8em">
+      </div>
+      <div class="row" id="analysis-controls" hidden>
+        <button id="engine-move" data-i18n="btn.engineMove">Let versor move once</button>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="sec.analysis">Analysis</h2>
+      <div class="row">
+        <label><input type="checkbox" id="show-hints">
+          <span data-i18n="label.showHints">Show the value of each move on the board</span></label>
+      </div>
+      <div class="row">
+        <label><span data-i18n="label.hintDepth">Hint depth</span>
+          <input id="hint-depth" type="number" value="6" min="1" style="width:5em"></label>
+      </div>
+      <div id="analysis-out">
+        <div><span data-i18n="label.eval">Value</span>: <span id="eval-value">-</span>
+          <span data-i18n="eval.unit">(disc difference, side to move)</span></div>
+        <div><span data-i18n="label.pv">Principal variation</span>: <span id="pv">-</span></div>
+        <div><span data-i18n="label.search">Search</span>: <span id="search-stats">-</span></div>
+      </div>
+      <h3 data-i18n="sec.graph">Value over the game (black's view)</h3>
+      <svg id="graph" viewBox="0 0 440 140" role="img" aria-label="eval graph"></svg>
+    </section>
+
+    <section>
+      <h2 data-i18n="sec.record">Move list (f5d6 format)</h2>
+      <div class="row">
+        <textarea id="moves-io" rows="3" style="width:100%"
+          data-i18n-ph="ph.moves" placeholder="f5d6c3d3c4 ..."></textarea>
+      </div>
+      <div class="row">
+        <button id="import-btn" data-i18n="btn.import">Load</button>
+        <button id="export-btn" data-i18n="btn.export">Export current game</button>
+      </div>
+    </section>
+  </div>
+</div>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

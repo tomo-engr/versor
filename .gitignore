@@ -1,0 +1,9 @@
+/target
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+data/
+*.log
+.pytest_cache/

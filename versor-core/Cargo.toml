@@ -1,0 +1,11 @@
+[package]
+name = "versor-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Board representation, rules and move generation for the versor reversi engine"
+
+[dependencies]
+
+[dev-dependencies]
+magpie = "0.12.0"

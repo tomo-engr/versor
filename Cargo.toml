@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "versor-core",
+    "versor-search",
+    "versor-eval",
+    "versor-cli",
+]
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+
+[profile.release]
+lto = true
+codegen-units = 1
